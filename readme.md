@@ -1,4 +1,4 @@
-# Three.js Journey
+# WebGL Typography
 
 ## Live prod
 [https://neverformal-webgl.vercel.app](https://neverformal-webgl.vercel.app)
