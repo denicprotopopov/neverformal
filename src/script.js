@@ -10,12 +10,40 @@ const cursor = {
     y: 0
 }
 
-window.addEventListener(
-    'mousemove',
-    (event) => {
-        cursor.x = (event.clientX - (window.innerWidth * 0.5)) / 100
-        cursor.y = (event.clientY - (window.innerHeight * 0.5)) / 100
-    })
+
+if ("ontouchstart" in document.documentElement)
+    {
+        let touchHandler = (event) => {
+    
+            if (event.touches && event.touches[0]) {
+                cursor.x = (event.touches[0].clientX - (window.innerWidth * 0.5)) / 100
+                cursor.y = (event.touches[0].clientY - (window.innerWidth * 0.5)) / 100
+            } else if (event.originalEvent && event.originalEvent.changedTouches[0]) {
+                cursor.x = (event.originalEvent.changedTouches[0].clientX - (window.innerWidth * 0.5)) / 100
+                cursor.y = (event.originalEvent.changedTouches[0].clientY - (window.innerWidth * 0.5)) / 100
+            } else if (event.clientX && event.clientY) {
+                cursor.x = (event.clientX - (window.innerWidth * 0.5)) / 100
+                cursor.y = (event.clientY - (window.innerWidth * 0.5)) / 100
+            }
+        
+        }
+        
+        window.addEventListener('touchstart', touchHandler, false)
+        window.addEventListener('touchmove', touchHandler, false)
+        window.addEventListener('touchend', touchHandler, false)
+
+    } else {
+        window.addEventListener(
+            'mousemove',
+            (event) => {
+                cursor.x = (event.clientX - (window.innerWidth * 0.5)) / 100
+                cursor.y = (event.clientY - (window.innerHeight * 0.5)) / 100
+            })
+    }
+
+
+
+
 
 /**
  * Base
@@ -116,7 +144,6 @@ const tick = () =>
     camera.position.x += ( cursor.x - camera.position.x ) * 0.02;
     camera.position.y += ( - cursor.y - camera.position.y ) * 0.02;
     camera.position.z = 5 - sizes.width / sizes.height
-    console.log(camera.position.z);
 
     camera.lookAt( 0, 0, 0 );
 
