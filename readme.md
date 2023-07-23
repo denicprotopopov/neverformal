@@ -1,4 +1,4 @@
-# WebGL Typography
+# Neverformal online radio MVP
 
 ## Live prod
 [https://neverformal-webgl.vercel.app](https://neverformal-webgl.vercel.app)

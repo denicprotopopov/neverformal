@@ -12,6 +12,8 @@
     "vite": "^4.0.4"
   },
   "dependencies": {
-    "three": "^0.148.0"
+    "canvas-dither": "^1.0.1",
+    "three": "^0.148.0",
+    "wavesurfer.js": "^7.0.5"
   }
 }

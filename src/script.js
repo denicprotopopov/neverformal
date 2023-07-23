@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
 
+
 /**
  * Cursor
  */
@@ -9,6 +10,7 @@ const cursor = {
     x: 0,
     y: 0
 }
+
 
 
 if ("ontouchstart" in document.documentElement)
